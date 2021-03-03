@@ -1,6 +1,12 @@
 # Compiled class file
 *.class
 
+# Project file
+*.project
+
+# Persistence
+persistence.xml
+
 # Log file
 *.log
 
