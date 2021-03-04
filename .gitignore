@@ -6,3 +6,4 @@
 
 # Persistence
 persistence.xml
+/target/
