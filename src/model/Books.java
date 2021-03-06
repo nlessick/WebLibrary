@@ -5,7 +5,7 @@
  */
 package model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,13 +27,13 @@ public class Books {
 	private String title;
 	
 	@Column(name="Publish_Date")
-	private Date publishDate;
+	private LocalDate publishDate;
 	
 	public Books() {
-		super();
+		
 	}
 
-	public Books(String title, Date publishDate) {
+	public Books(String title, LocalDate publishDate) {
 		super();
 		this.title = title;
 		this.publishDate = publishDate;
@@ -70,14 +70,14 @@ public class Books {
 	/**
 	 * @return the publishDate
 	 */
-	public Date getPublishDate() {
+	public LocalDate getPublishDate() {
 		return publishDate;
 	}
 
 	/**
 	 * @param publishDate the publishDate to set
 	 */
-	public void setPublishDate(Date publishDate) {
+	public void setPublishDate(LocalDate publishDate) {
 		this.publishDate = publishDate;
 	}
 
