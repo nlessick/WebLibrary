@@ -45,6 +45,8 @@ public class addBookServlet extends HttpServlet {
 		}
 		
 		Books book = new Books(title, ld);
+		BooksHelper bookHelp = new BooksHelper();
+		bookHelp.insertBook(book);
 		
 		getServletContext().getRequestDispatcher("/viewAllBooksServlet").forward(request, response);
 		
