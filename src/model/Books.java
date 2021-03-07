@@ -26,6 +26,9 @@ public class Books {
 	@Column(name="Title")
 	private String title;
 	
+	@Column(name="Name")
+	private String name;
+	
 	@Column(name="Publish_Date")
 	private LocalDate publishDate;
 	
@@ -33,9 +36,10 @@ public class Books {
 		
 	}
 
-	public Books(String title, LocalDate publishDate) {
+	public Books(String title, String name, LocalDate publishDate) {
 		super();
 		this.title = title;
+		this.name = name;
 		this.publishDate = publishDate;
 	}
 
@@ -68,6 +72,20 @@ public class Books {
 	}
 
 	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
 	 * @return the publishDate
 	 */
 	public LocalDate getPublishDate() {
@@ -81,9 +99,4 @@ public class Books {
 		this.publishDate = publishDate;
 	}
 
-	@Override
-	public String toString() {
-		return "Books [Id=" + Id + ", title=" + title + ", publishDate=" + publishDate + "]";
-	}
-	
 }

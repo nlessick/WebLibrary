@@ -1,28 +1,23 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.time.LocalDate;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Books;
-
 /**
- * Servlet implementation class addBookServlet
+ * Servlet implementation class viewAllBooksServlet
  */
-@WebServlet("/addBookServlet")
-public class addBookServlet extends HttpServlet {
+@WebServlet("/viewAllBooksServlet")
+public class viewAllBooksServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addBookServlet() {
+    public viewAllBooksServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,24 +27,17 @@ public class addBookServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String title = request.getParameter("title");
-		String author = request.getParameter("author");
-		String month = request.getParameter("month");
-		String day = request.getParameter("day");
-		String year = request.getParameter("year");
-		LocalDate ld;
+		BooksHelper bookHelp = new BooksHelper();
 		
-		try {
-			ld = LocalDate.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
-		} catch(NumberFormatException ex) {
-			ld = LocalDate.now();
+		request.setAttribute("allBooks", bookHelp.retrieveAllBooks());
+		
+		String path = "/book-list.jsp";
+		
+		if (bookHelp.retrieveAllBooks().isEmpty()) {
+			path = "/index.html";
 		}
 		
-		Books book = new Books(title, author, ld);
-		BooksHelper bookHelp = new BooksHelper();
-		bookHelp.insertBook(book);
-		
-		getServletContext().getRequestDispatcher("/viewAllBooksServlet").forward(request, response);
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 		
 	}
 
