@@ -23,18 +23,15 @@ public class Publisher {
 	
 	@Column(name="Name")
 	private String name;
-	
-	@Column(name="Country")
-	private String country;
+
 	
 	public Publisher() {
 		super();
 	}
 
-	public Publisher(String name, String country) {
+	public Publisher(String name) {
 		super();
 		this.name = name;
-		this.country = country;
 	}
 
 	/**
@@ -68,20 +65,10 @@ public class Publisher {
 	/**
 	 * @return the country
 	 */
-	public String getCountry() {
-		return country;
-	}
-
-	/**
-	 * @param country the country to set
-	 */
-	public void setCountry(String country) {
-		this.country = country;
-	}
 
 	@Override
 	public String toString() {
-		return "Publisher [Id=" + Id + ", name=" + name + ", country=" + country + "]";
+		return "Publisher [Id=" + Id + ", name=" + name + "]";
 	}
 
 }
