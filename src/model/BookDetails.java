@@ -2,13 +2,17 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -25,9 +29,15 @@ public class BookDetails {
 	private int id;
 	@Column(name="LIST_NAME")
 	private String listName;
-	@ManyToOne
+	@ManyToOne (cascade=CascadeType.PERSIST)
 	@JoinColumn(name="ID")
 	private Publisher publisher;
+	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+	@JoinTable (
+			name="BOOKS_ON_LIST",
+			joinColumns= { @JoinColumn(name="LIST_ID", referencedColumnName="LIST_ID") },
+			inverseJoinColumns= { @JoinColumn(name="BOOK_ID", referencedColumnName="ID", unique=true) }
+			)
 	private List<Books> listOfBooks;
 	
 	public BookDetails() {
