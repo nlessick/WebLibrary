@@ -16,7 +16,7 @@ import model.Books;
 
 public class BooksHelper {
 	
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("WebLibrary");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ConsoleWebLibrary");
 
 	public BooksHelper() {
 		
@@ -89,19 +89,19 @@ public class BooksHelper {
 	 */
 	public void deleteBook(Books x) {
 
-		// Find set
+		// Find book
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Books> typedQuery = em.createQuery("SELECT i FROM Books i WHERE i.title = :selectedName and i.publish_date = :selectedYear", Books.class);
+		TypedQuery<Books> typedQuery = em.createQuery("SELECT i FROM Books i WHERE i.Title = :selectedTitle and i.Publish_Date = :selectedDate", Books.class);
 
-		typedQuery.setParameter("selectedName", x.getTitle());
-		typedQuery.setParameter("selectedYear", x.getPublishDate());
+		typedQuery.setParameter("selectedTitle", x.getTitle());
+		typedQuery.setParameter("selectedDate", x.getPublishDate());
 
 		typedQuery.setMaxResults(1);
 
 		Books result = typedQuery.getSingleResult();
 
-		// Delete set
+		// Delete book
 		em.remove(result);
 		em.getTransaction().commit();
 		em.close();

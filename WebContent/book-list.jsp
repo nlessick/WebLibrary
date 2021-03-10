@@ -14,7 +14,6 @@
 <tr>
 	<td><input type="radio" name="id" value="${currentbook.id}"></td>
 	<td>${currentbook.title}</td>
-	<td>${currentbook.name}</td>
 	<td>${currentbook.publishDate}</td>
 </tr>
 </c:forEach>

@@ -31,7 +31,7 @@ public class navigationServlet extends HttpServlet {
 
     	BooksHelper bookHelp = new BooksHelper();
 
-    	String act = request.getParameter("doThisToSet");
+    	String act = request.getParameter("doThisToBook");
 
     	String path = "/viewAllSetsServlet";
 

@@ -26,9 +26,6 @@ public class Books {
 	@Column(name="Title")
 	private String title;
 	
-	@Column(name="Name")
-	private String name;
-	
 	@Column(name="Publish_Date")
 	private LocalDate publishDate;
 	
@@ -36,10 +33,9 @@ public class Books {
 		
 	}
 
-	public Books(String title, String name, LocalDate publishDate) {
+	public Books(String title, LocalDate publishDate) {
 		super();
 		this.title = title;
-		this.name = name;
 		this.publishDate = publishDate;
 	}
 
@@ -69,20 +65,6 @@ public class Books {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	/**

@@ -42,12 +42,10 @@ public class editBookServlet extends HttpServlet {
 		BooksHelper dao = new BooksHelper();
 		
 		String title = request.getParameter("title");
-		String name = request.getParameter("name");
 		Integer tempId = Integer.parseInt(request.getParameter("id"));
 		
 		Books bookToUpdate = dao.searchById(tempId);
 		bookToUpdate.setTitle(title);
-		bookToUpdate.setName(name);
 		
 		dao.updateBook(bookToUpdate);
 		

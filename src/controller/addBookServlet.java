@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.servlet.ServletException;
@@ -33,7 +32,6 @@ public class addBookServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String title = request.getParameter("title");
-		String author = request.getParameter("author");
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
 		String year = request.getParameter("year");
@@ -45,7 +43,7 @@ public class addBookServlet extends HttpServlet {
 			ld = LocalDate.now();
 		}
 		
-		Books book = new Books(title, author, ld);
+		Books book = new Books(title, ld);
 		BooksHelper bookHelp = new BooksHelper();
 		bookHelp.insertBook(book);
 		
