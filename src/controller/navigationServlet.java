@@ -33,7 +33,7 @@ public class navigationServlet extends HttpServlet {
 
     	String act = request.getParameter("doThisToBook");
 
-    	String path = "/viewAllSetsServlet";
+    	String path = "/viewAllBooksServlet";
 
     	if (act.equals("delete")) {
 
