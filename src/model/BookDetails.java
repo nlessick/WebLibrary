@@ -34,7 +34,7 @@ public class BookDetails {
 	private Publisher publisher;
 	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	@JoinTable (
-			name="BOOKS_ON_LIST",
+			name="Books_On_List",
 			joinColumns= { @JoinColumn(name="LIST_ID", referencedColumnName="LIST_ID") },
 			inverseJoinColumns= { @JoinColumn(name="BOOK_ID", referencedColumnName="ID", unique=true) }
 			)

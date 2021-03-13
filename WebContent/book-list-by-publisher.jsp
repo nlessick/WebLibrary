@@ -26,8 +26,6 @@
 <input type="submit" value="delete" name="doThisToList">
 <input type="submit" value="add" name="doThisToList">
 </form>
-
-<a href="addBooksForListServlet">Create a new Publisher</a><br />
 <a href="index.html">Insert a new book</a>
 </body>
 </html>
