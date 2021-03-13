@@ -21,7 +21,7 @@ import javax.persistence.Table;
  * {3/10/2021}
  */
 @Entity
-@Table(name="Books_Details")
+@Table(name="Book_Details")
 public class BookDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

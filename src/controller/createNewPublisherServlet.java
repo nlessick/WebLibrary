@@ -17,14 +17,14 @@ import model.Publisher;
 /**
  * Servlet implementation class createNewListServlet
  */
-@WebServlet("/createNewListServlet")
-public class createNewListServlet extends HttpServlet {
+@WebServlet("/createNewPublisherServlet")
+public class createNewPublisherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public createNewListServlet() {
+    public createNewPublisherServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -59,7 +59,7 @@ public class createNewListServlet extends HttpServlet {
 		System.out.println("Success!");
 		System.out.println(bd.toString());
 		
-		getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
+		getServletContext().getRequestDispatcher("/viewAllPublishersServlet").forward(request, response);
 	}
 
 	/**

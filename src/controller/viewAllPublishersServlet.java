@@ -14,14 +14,14 @@ import model.BookDetails;
 /**
  * Servlet implementation class viewAllListsServlet
  */
-@WebServlet("/viewAllListsServlet")
-public class viewAllListsServlet extends HttpServlet {
+@WebServlet("/viewAllPublishersServlet")
+public class viewAllPublishersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public viewAllListsServlet() {
+    public viewAllPublishersServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,6 +38,8 @@ public class viewAllListsServlet extends HttpServlet {
 		if(abc.isEmpty()) {
 			request.setAttribute("allLists", " ");
 		}
+		
+		getServletContext().getRequestDispatcher("/book-list-by-publisher.jsp").forward(request, response);
 	}
 
 	/**
