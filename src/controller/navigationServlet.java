@@ -35,7 +35,11 @@ public class navigationServlet extends HttpServlet {
 
     	String path = "/viewAllBooksServlet";
 
-    	if (act.equals("delete")) {
+    	if (act == null) {
+    		
+    		getServletContext().getRequestDispatcher("/viewAllBooksServlet").forward(request, response);
+    	    	
+    	} else if (act.equals("delete")) {
 
     		try {
 
@@ -57,6 +61,10 @@ public class navigationServlet extends HttpServlet {
     			Books bookToEdit = bookHelp.searchById(tempId);
     			request.setAttribute("bookToEdit", bookToEdit);
     			path = "/edit-book.jsp";
+    			
+    			request.setAttribute("month", bookToEdit.getPublishDate().getMonthValue());
+    			request.setAttribute("day", bookToEdit.getPublishDate().getDayOfMonth());
+    			request.setAttribute("year", bookToEdit.getPublishDate().getYear());
 
     		} catch (NumberFormatException e) {
 
