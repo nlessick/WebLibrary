@@ -14,7 +14,7 @@
 	<tr>
 		<td><input type="radio" name="id" value="${currentlist.id}"></td>
 		<td><h2>${currentlist.listName}</h2></td></tr>
-		<tr><td colspan="3">Publisher: ${currentlist.publisher}</td></tr>
+		<tr><td colspan="3">Publisher: ${currentlist.publisher.name}</td></tr>
 		<c:forEach var="listVal" items="${currentlist.listOfBooks}">
 		<tr><td></td><td colspan="3"> ${listVal.title}, ${listVal.publishDate}
 		</td>

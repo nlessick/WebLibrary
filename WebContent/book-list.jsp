@@ -22,6 +22,7 @@
 <input type="submit" value="delete" name="doThisToBook">
 <input type="submit" value="add" name="doThisToBook">
 </form>
-<a href="index.html">Insert a new book</a>
+<a href="index.html">Insert a new book</a><br />
+<a href="addBooksForListServlet">Add a publisher</a>
 </body>
 </html>

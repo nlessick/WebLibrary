@@ -20,6 +20,6 @@
 	<br />
 	<input type="submit" value="Create List and Add Books">
 	</form>
-<a href="index.html">Go to home page.</a>
+<a href="index.html">Insert a new book.</a>
 </body>
 </html>
