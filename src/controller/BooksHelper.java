@@ -92,7 +92,7 @@ public class BooksHelper {
 		// Find book
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Books> typedQuery = em.createQuery("SELECT i FROM Books i WHERE i.Title = :selectedTitle and i.Publish_Date = :selectedDate", Books.class);
+		TypedQuery<Books> typedQuery = em.createQuery("SELECT i FROM Books i WHERE i.title = :selectedTitle and i.publishDate = :selectedDate", Books.class);
 
 		typedQuery.setParameter("selectedTitle", x.getTitle());
 		typedQuery.setParameter("selectedDate", x.getPublishDate());
