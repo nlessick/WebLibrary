@@ -41,7 +41,7 @@ public class ListNavigationServlet extends HttpServlet {
 		String act = request.getParameter("doThisToList");
 		
 		if(act == null) {
-			getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
+			getServletContext().getRequestDispatcher("/viewAllPublishersServlet").forward(request, response);
 		} else if(act.equals("delete")) {
 			try {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
@@ -50,7 +50,7 @@ public class ListNavigationServlet extends HttpServlet {
 			} catch (NumberFormatException e) {
 				System.out.println("Forgot to click a button");
 			} finally {
-				getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
+				getServletContext().getRequestDispatcher("/viewAllPublishersServlet").forward(request, response);
 			}
 		} else if(act.equals("edit")) {
 			try {
@@ -67,10 +67,10 @@ public class ListNavigationServlet extends HttpServlet {
 				
 				getServletContext().getRequestDispatcher("/edit-list.jsp").forward(request, response);
 			} catch (NumberFormatException e) {
-				getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
+				getServletContext().getRequestDispatcher("/viewAllPublishersServlet").forward(request, response);
 			}
 		} else if(act.equals("add")) {
-			getServletContext().getRequestDispatcher("/new-list.html").forward(request, response);
+			getServletContext().getRequestDispatcher("/addBooksForListServlet").forward(request, response);
 		}
 	}
 

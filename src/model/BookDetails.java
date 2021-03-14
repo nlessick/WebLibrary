@@ -21,7 +21,7 @@ import javax.persistence.Table;
  * {3/10/2021}
  */
 @Entity
-@Table(name="Books_Details")
+@Table(name="Book_Details")
 public class BookDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -34,7 +34,7 @@ public class BookDetails {
 	private Publisher publisher;
 	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	@JoinTable (
-			name="BOOKS_ON_LIST",
+			name="Books_On_List",
 			joinColumns= { @JoinColumn(name="LIST_ID", referencedColumnName="LIST_ID") },
 			inverseJoinColumns= { @JoinColumn(name="BOOK_ID", referencedColumnName="ID", unique=true) }
 			)

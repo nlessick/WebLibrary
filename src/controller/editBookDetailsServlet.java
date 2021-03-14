@@ -73,7 +73,7 @@ public class editBookDetailsServlet extends HttpServlet {
 		
 		dao.updateList(listToUpdate);
 		
-		getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
+		getServletContext().getRequestDispatcher("/viewAllPublishersServlet").forward(request, response);
 	}
 
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Book Lists</title>
+<title>Book Publishers</title>
 </head>
 <body>
 	<form method="post" action="listnavigationServlet">
@@ -14,9 +14,9 @@
 	<tr>
 		<td><input type="radio" name="id" value="${currentlist.id}"></td>
 		<td><h2>${currentlist.listName}</h2></td></tr>
-		<tr><td colspan="3">Book: ${currentlist.Publisher.name}</td></tr>
+		<tr><td colspan="3">Publisher: ${currentlist.publisher.name}</td></tr>
 		<c:forEach var="listVal" items="${currentlist.listOfBooks}">
-		<tr><td></td><td colspan="3"> ${listVal.title}, ${listVal.name}
+		<tr><td></td><td colspan="3"> ${listVal.title}, ${listVal.publishDate}
 		</td>
 		</tr>
 		</c:forEach>
@@ -26,8 +26,6 @@
 <input type="submit" value="delete" name="doThisToList">
 <input type="submit" value="add" name="doThisToList">
 </form>
-
-<a href="addBooksForListServlet">Create a new List</a>
 <a href="index.html">Insert a new book</a>
 </body>
 </html>

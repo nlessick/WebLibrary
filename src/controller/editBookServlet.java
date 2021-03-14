@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,12 +44,22 @@ public class editBookServlet extends HttpServlet {
 		BooksHelper dao = new BooksHelper();
 		
 		String title = request.getParameter("title");
-		String name = request.getParameter("name");
 		Integer tempId = Integer.parseInt(request.getParameter("id"));
+		String month = request.getParameter("month");
+		String day = request.getParameter("day");
+		String year = request.getParameter("year");
+		LocalDate ld;
+		
+		try {
+			ld = LocalDate.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
+		} catch(NumberFormatException ex) {
+			ld = LocalDate.now();
+		}
+		
 		
 		Books bookToUpdate = dao.searchById(tempId);
 		bookToUpdate.setTitle(title);
-		bookToUpdate.setName(name);
+		bookToUpdate.setPublishDate(ld);
 		
 		dao.updateBook(bookToUpdate);
 		

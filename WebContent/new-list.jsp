@@ -8,18 +8,18 @@
 <title>Create a new list</title>
 </head>
 <body>
-	<form action="createNewListServlet" method="post">
+	<form action="createNewPublisherServlet" method="post">
 	List Name: <input type="text" name="listName"><br />
 	Publisher Name: <input type="text" name="name"><br />
 	Available Items:<br />
 	<select name="allBooksToAdd" multiple size="6">
 	<c:forEach items="${requestScope.allBooks}" var="currentitem">
-	<option value="${currentitem.id}">${currentitem.title} | ${currentitem.name}</option>
+		<option value="${currentitem.id}">${currentitem.title} | ${currentitem.publishDate}</option>
 	</c:forEach>
 	</select>
 	<br />
 	<input type="submit" value="Create List and Add Books">
 	</form>
-<a href="index.html">Go to home page.</a>
+<a href="index.html">Insert a new book.</a>
 </body>
 </html>
